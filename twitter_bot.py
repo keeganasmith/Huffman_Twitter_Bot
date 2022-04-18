@@ -29,7 +29,7 @@ while(True):
    for mention in mentions:
       statusID = mention.id
       if(not(mention.id_str in used_IDs) and str(mention.user.screen_name) != "bot90861498" and ("decode" in mention.text.lower())):
-         screen_name = "@" + str(mention.user.screen_name);
+         screen_name = "@" + str(mention.user.screen_name) + " ";
          try:
             status = api.get_status(statusID, tweet_mode = "extended")
             text = status.full_text.lower()
