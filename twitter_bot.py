@@ -29,13 +29,14 @@ while(True):
    for mention in mentions:
       statusID = mention.id
       if(not(mention.id_str in used_IDs) and str(mention.user.screen_name) != "bot90861498" and ("decode" in mention.text.lower())):
+         screen_name = "@" + str(mention.user.screen_name);
          try:
             status = api.get_status(statusID, tweet_mode = "extended")
             text = status.full_text.lower()
-            output = decode.decode(text)
+            output = screen_name + decode.decode(text)
             api.update_status(status = output, in_reply_to_status_id = mention.id)
          except:
-            api.update_status(status = "I wasn't able to decode your message :(", in_reply_to_status_id = mention.id);
+            api.update_status(status = screen_name + "I wasn't able to decode your message :(", in_reply_to_status_id = mention.id);
          used_IDs.append(mention.id_str)
          myFile = open("used_IDs.txt", 'w')
          for used_ID in used_IDs:
