@@ -1,6 +1,5 @@
 import tweepy
 import time as time
-import Access_Keys as keys
 import huffman as huff
 import Decoder as decode
 from os import environ
