@@ -3,7 +3,7 @@ TLDR:Bot that uses the huffman coding algorithm to compress tweets with the keyw
 
 How it works/how it uses the twitter api: Through tweepy/python and some authentication keys it uses the twitter API. From there, it uses the twitter API to sort through statuses (tweets) that it was mentioned in. To prevent the bot from replying to statuses (tweets) that it has already replied to, it adds the id of every mention to a list and before every tweet it will check to make sure the id of the mention is not contained in this list. When the bot replies to a mention, it adds the mention id to the list. My bot also uses the twitter api to create statuses (tweet)
 
-Huffman algorithm: This symbol code compression algorithm traditionally uses a priority queue and a binary tree to sort and encode messages based on the frequencies of characters. In my implementation I used a list instead of a pqueue, but it functions just as well. 
+Huffman algorithm: This symbol code compression algorithm traditionally uses a priority queue and a binary tree to sort and encode messages based on the frequencies of characters. In my implementation I used a list instead of a pqueue, but it functions just as well. Essentially the goal of this algorithm is to reduce the entropy of the message, or in other words the number of bits per symbol. Most symbols are encoded using ASCII which uses 8 bits per symbol. This is typically much more than needed. For instance if I have a message which only contains say 26 unique symbols, do I really need 8 bits per character?
 
 
 
